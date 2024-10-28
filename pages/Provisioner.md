@@ -1,0 +1,11 @@
+- Behind the StorageClass, works with it to auto provide storage ( no 1/2s ).
+- It supports [[Access Contro]] - uses Roles, RoleBindings and ServiceAccounts.
+-
+- Requirements :
+	- Access to the API; this is what permissions are needed for.
+	- Roles and RoleBindings are created to provide permissions.
+	- A ServiceAccount is created to connect the Pod to the appropriate RoleBinding.
+- Normally this is done via `helm` package manager and once this is done, you can `patch` the `storageclass` to make it Dft.
+- `kubect| patch storageclass mysc -p '{"metadata":{"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'`
+-
+-
